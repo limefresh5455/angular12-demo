@@ -1,0 +1,24 @@
+<h1 mat-dialog-title><strong *ngIf="action != 'View'">{{action}}</strong></h1>
+<div mat-dialog-content>
+  <mat-form-field *ngIf="action == 'Add'; else elseTemplate">
+    <input placeholder="{{action}} Name" matInput [(ngModel)]="userdata.name">
+  </mat-form-field>
+  <mat-form-field *ngIf="type == 'Contact' && action == 'Add'">
+    <input placeholder="{{action}} Contact" matInput [(ngModel)]="userdata.contact">
+  </mat-form-field>
+  <mat-form-field *ngIf="type == 'Calendar' && action == 'Add'">
+  	<input matInput [matDatepicker]="picker" [(ngModel)]="userdata.calendar" placeholder="Choose a date">
+  	<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+  	<mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+  <ng-template #elseTemplate>
+    <span *ngIf="action == 'Delete'">Sure to delete <b>{{userdata.name}}</b>?</span>
+    <span *ngIf="action == 'View'">User Name: <b>{{userdata.name}}</b></span><br>
+    <span *ngIf="type == 'Contact' && action == 'View'">User Contact: <b>{{userdata.contact}}</b></span>
+    <span *ngIf="type == 'Calendar' && action == 'View'">User Date: <b>{{userdata.calendar}}</b></span>
+  </ng-template>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="doAction()" *ngIf="action != 'View'">{{action}}</button>
+  <button mat-button (click)="closeDialog()" mat-flat-button color="warn">Cancel</button>
+</div>
