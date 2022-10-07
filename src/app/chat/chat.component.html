@@ -1,0 +1,24 @@
+<h2>Chat</h2>
+<section *ngIf="username == ''">
+	<mat-form-field>
+		<input placeholder="User Name" matInput #input>
+	</mat-form-field>
+	<button mat-raised-button color="primary" (click)="login(input.value)" style="margin-left: 10px;">Login</button>
+</section>
+<section *ngIf="username">
+	<div class="container left-side" style="width:50%;">
+	  <img alt="Avatar" style="width:100%;">
+	  <p>Hey! I'm fine. Thanks for asking!</p>
+	  <span class="time-right">11:00</span>
+	</div>
+	<div class="container darker right-side" *ngFor="let message of messages"  style="width:50%;">
+	  <img alt="Avatar" class="right" style="width:100%;">
+	  <p>{{message}}</p>
+	  <span class="time-left">11:01</span>
+	</div>
+	<mat-form-field class="example-full-width" appearance="fill">
+		<mat-label>Message</mat-label>
+		<textarea matInput [(ngModel)]="message" (keyup)="$event.keyCode == 13 && sendMessage()" placeholder="Ex. It makes me feel..."></textarea>
+	</mat-form-field>
+	<button mat-raised-button color="primary" (click)="sendMessage()" style="margin-left: 10px;">Send</button>
+</section>

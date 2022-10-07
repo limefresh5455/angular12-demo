@@ -1,0 +1,24 @@
+<section style="margin-top: 10px;">
+	<mat-tab-group>
+		<mat-tab *ngFor="let tab of prefTabs" label="{{tab.label}}">
+			<ng-template matTabContent>
+				<mat-tab-group style="margin-left: 30px;">
+					<mat-tab *ngFor="let tab1 of tab.childTab" label="{{tab1.label}}">
+						<mat-tab-group style="margin-left: 30px;">
+							<mat-tab *ngFor="let tab2 of tab1.childTab1" label="{{tab2.label}}">
+								<mat-list role="list">
+								  <mat-list-item role="listitem">ID: <mat-list-item role="listitem"><strong>{{userInfo.id}}</strong></mat-list-item></mat-list-item>
+								  <mat-list-item role="listitem">Name: <mat-list-item role="listitem"><strong>{{userInfo.name}}</strong></mat-list-item></mat-list-item>
+								  <mat-list-item role="listitem">User Name: <mat-list-item role="listitem"><strong>{{userInfo.username}}</strong></mat-list-item></mat-list-item>
+								  <mat-list-item role="listitem">Email: <mat-list-item role="listitem"><strong>{{userInfo.email}}</strong></mat-list-item></mat-list-item>
+								  <mat-list-item role="listitem">Phone: <mat-list-item role="listitem"><strong>{{userInfo.phone}}</strong></mat-list-item></mat-list-item>
+								  <mat-list-item role="listitem">Website: <mat-list-item role="listitem"><strong>{{userInfo.website}}</strong></mat-list-item></mat-list-item>
+								</mat-list>
+							</mat-tab>
+						</mat-tab-group>
+					</mat-tab>
+				</mat-tab-group>
+			</ng-template>
+		</mat-tab>
+	</mat-tab-group>
+</section>

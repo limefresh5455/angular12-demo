@@ -1,0 +1,19 @@
+<section style="margin-top: 10px;">
+<a mat-button mat-flat-button color="primary" routerLink="/usersadd" style="float: right;">Add</a>
+<div class="example-header">
+  <mat-form-field style="width: 40%;">
+    <input matInput (keyup)="applyFilter($event)" placeholder="Filter By Email">
+  </mat-form-field>
+</div>
+<table mat-table [dataSource]="dataSource" #mytable class="mat-elevation-z8 demo-table">
+   <ng-container *ngFor="let column of displayedColumns" [matColumnDef]="column">
+      <th mat-header-cell *matHeaderCellDef>{{ column }}</th>
+      <td mat-cell *matCellDef="let row">
+         <span *ngIf="column != 'action'">{{ row[column] }}</span>
+         <a *ngIf="column == 'action'" mat-icon-button color="success" routerLink="/tabs/{{row.id}}" title="View Profile"><mat-icon>preview</mat-icon></a>
+      </td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+</section>

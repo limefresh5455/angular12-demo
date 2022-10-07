@@ -1,0 +1,37 @@
+<section style="margin-top: 10px; text-align: center;">
+	<form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+		<div class="example-container">
+		  <mat-form-field appearance="fill">
+		    <mat-label>Name</mat-label>
+		    <input matInput placeholder="pat@example.com" formControlName="name" required>
+		  </mat-form-field>
+		</div>
+		<div class="example-container">  
+		  <mat-form-field appearance="fill">
+		    <mat-label>User Name</mat-label>
+		    <input matInput placeholder="pat@example.com" formControlName="username" required>
+		  </mat-form-field>
+		</div>
+		<div class="example-container">  
+		  <mat-form-field appearance="fill">
+		    <mat-label>Email</mat-label>
+		    <input matInput placeholder="pat@example.com" formControlName="email" required>
+		  </mat-form-field>
+		</div>
+		<div class="example-container">  
+		  <mat-form-field appearance="fill">
+		    <mat-label>Phone</mat-label>
+		    <input matInput placeholder="pat@example.com" formControlName="phone" required>
+		  </mat-form-field>
+		</div>
+		<div class="example-container">  
+		  <mat-form-field appearance="fill">
+		    <mat-label>Website</mat-label>
+		    <input matInput placeholder="pat@example.com" formControlName="website" required>
+		  </mat-form-field>
+		</div>
+	    <div class="example-container">
+	       <button mat-button mat-flat-button color="primary" type="submit">Submit</button>
+	    </div>
+	</form>
+</section>
